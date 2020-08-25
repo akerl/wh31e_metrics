@@ -1,4 +1,4 @@
-module github.com/akerl/pumidor
+module github.com/akerl/newrelic_wh31e
 
 go 1.15
 
