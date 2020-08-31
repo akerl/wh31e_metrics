@@ -18,11 +18,17 @@ type message struct {
 }
 
 func handle(log format.LogParts) error {
+	data, err := log["message"].([]byte)
+	if err != nil {
+		return err
+	}
+
 	var m message
 	err := json.Unmarshal(log["message"], &m)
 	if err != nil {
 		return err
 	}
+
 	fmt.Printf("%+v\n", m)
 	return nil
 }
