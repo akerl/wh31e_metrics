@@ -49,8 +49,10 @@ func main() {
 	server := syslog.NewServer()
 	server.SetFormat(syslog.RFC5424)
 	server.SetHandler(handler)
-	server.ListenUDP("127.0.0.1:514")
+	server.ListenUDP("127.0.0.1:1514")
 
-	server.Boot()
+	if err := server.Boot(); err != nil {
+		panic(err)
+	}
 	server.Wait()
 }
