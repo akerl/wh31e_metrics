@@ -18,13 +18,13 @@ type message struct {
 }
 
 func handle(log format.LogParts) error {
-	data, ok := log["message"].([]byte)
+	data, ok := log["message"].(string)
 	if !ok {
 		return fmt.Errorf("failed to coerce message to byte slice")
 	}
 
 	var m message
-	err := json.Unmarshal(data, &m)
+	err := json.Unmarshal([]byte(data), &m)
 	if err != nil {
 		return err
 	}
