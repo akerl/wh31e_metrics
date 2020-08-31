@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"gopkg.in/mcuadros/go-syslog.v2"
+	"gopkg.in/mcuadros/go-syslog.v2/format"
 )
 
 type message struct {
@@ -16,7 +17,7 @@ type message struct {
 	Humidity     int     `json:"humidity"`
 }
 
-func handle(log syslog.LogParts) error {
+func handle(log format.LogParts) error {
 	var m message
 	err := json.Unmarshal(log["message"], &m)
 	if err != nil {
