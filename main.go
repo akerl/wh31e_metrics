@@ -8,6 +8,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/akerl/timber/v2/log"
 	"github.com/ghodss/yaml"
 	"github.com/influxdata/influxdb-client-go/v2"
 	"github.com/influxdata/influxdb-client-go/v2/api/write"
@@ -17,6 +18,8 @@ import (
 
 // Version is overridden by link flags during build
 var Version = "unset"
+
+var logger = log.NewLogger("wh31e_metrics")
 
 type config struct {
 	InfluxURL    string         `json:"influx_url"`
@@ -46,9 +49,9 @@ func (m message) IDStr() string {
 }
 
 func (m message) Name(conf config) string {
-	name := conf.SensorNames[m.Channel]
+	name := conf.SensorNames[m.ID]
 	if name == "" {
-		name = fmt.Sprintf("%d", m.Channel)
+		name = fmt.Sprintf("%d", m.ID)
 	}
 	return name
 }
@@ -110,7 +113,7 @@ func loop(conf config, channel syslog.LogPartsChannel) error {
 		if err != nil {
 			return err
 		}
-		fmt.Printf("logging point: %+v\n", p)
+		logger.DebugMsgf("logging point: %#v\n", p)
 		err = writeAPI.WritePoint(context.Background(), p)
 		if err != nil {
 			return err
@@ -146,7 +149,7 @@ func start() error {
 		return fmt.Errorf("config file must be given as argument")
 	}
 	c, err := loadConfig(os.Args[1])
-	fmt.Printf("config: %+v\n", c)
+	logger.InfoMsgf("config: %#v\n", c)
 	if err != nil {
 		return err
 	}
