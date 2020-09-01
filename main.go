@@ -152,10 +152,7 @@ func start() error {
 	if err := launchSyslogServer(c, channel); err != nil {
 		return err
 	}
-	if err := loop(c, channel); err != nil {
-		return err
-	}
-	return nil
+	return loop(c, channel)
 }
 
 func main() {
