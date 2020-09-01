@@ -110,6 +110,7 @@ func loop(conf config, channel syslog.LogPartsChannel) error {
 		if err != nil {
 			return err
 		}
+		fmt.Printf("logging point: %+v\n", p)
 		err = writeAPI.WritePoint(context.Background(), p)
 		if err != nil {
 			return err
@@ -145,6 +146,7 @@ func start() error {
 		return fmt.Errorf("config file must be given as argument")
 	}
 	c, err := loadConfig(os.Args[1])
+	fmt.Printf("config: %+v\n", c)
 	if err != nil {
 		return err
 	}
