@@ -38,17 +38,17 @@ type message struct {
 }
 
 func (m message) ChannelStr() string {
-	return string(m.Channel)
+	return fmt.Sprintf("%d", m.Channel)
 }
 
 func (m message) IDStr() string {
-	return string(m.ID)
+	return fmt.Sprintf("%d", m.ID)
 }
 
 func (m message) Name(conf config) string {
 	name := conf.SensorNames[m.Channel]
 	if name == "" {
-		name = string(m.Channel)
+		name = fmt.Sprintf("%d", m.Channel)
 	}
 	return name
 }
