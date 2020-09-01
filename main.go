@@ -140,24 +140,27 @@ func loadConfig(file string) (config, error) {
 	return c, err
 }
 
-func die(err error) {
-	fmt.Println(err)
-	os.Exit(1)
-}
-
-func main() {
+func start() error {
 	if len(os.Args) < 2 {
-		die(fmt.Errorf("config file must be given as argument"))
+		return fmt.Errorf("config file must be given as argument")
 	}
 	c, err := loadConfig(os.Args[1])
 	if err != nil {
-		die(err)
+		return err
 	}
 	channel := make(syslog.LogPartsChannel)
 	if err := launchSyslogServer(c, channel); err != nil {
-		die(err)
+		return err
 	}
 	if err := loop(c, channel); err != nil {
-		die(err)
+		return err
+	}
+}
+
+func main() {
+	err := start()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
 }
