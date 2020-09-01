@@ -155,6 +155,7 @@ func start() error {
 	if err := loop(c, channel); err != nil {
 		return err
 	}
+	return nil
 }
 
 func main() {
