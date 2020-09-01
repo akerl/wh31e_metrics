@@ -1,0 +1,26 @@
+name 'wh31e_metrics'
+org 'akerl'
+
+source(
+  type: 'git',
+  path: '.'
+)
+
+build do
+  run 'make local'
+  cp 'bin'
+end
+
+package(
+  type: 'file',
+  artifacts: [
+    {
+      source: 'bin/wh31e_metrics_linux_armv6l',
+      name: 'wh31e_metrics_linux_armv6l'
+    }
+  ]
+)
+
+test do
+  # TODO: add tests
+end

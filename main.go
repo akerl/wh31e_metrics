@@ -15,6 +15,9 @@ import (
 	"gopkg.in/mcuadros/go-syslog.v2/format"
 )
 
+// Version is overridden by link flags during build
+var Version = "unset"
+
 type config struct {
 	InfluxURL    string         `json:"influx_url"`
 	InfluxToken  string         `json:"influx_token"`
