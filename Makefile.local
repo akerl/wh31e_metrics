@@ -1,5 +1,6 @@
 PACKAGE = wh31e_metrics
 NAMESPACE = github.com/akerl
 VERSION_VAR_PATH = Version
+OSLIST = linux
 ARCHLIST = amd64 arm
 OUTPUT_FORMAT = bin/$(PACKAGE)_{{.OS}}_{{.Arch}}

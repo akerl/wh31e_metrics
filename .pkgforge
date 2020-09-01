@@ -15,8 +15,12 @@ package(
   type: 'file',
   artifacts: [
     {
-      source: 'bin/wh31e_metrics_linux_armv6l',
-      name: 'wh31e_metrics_linux_armv6l'
+      source: 'bin/wh31e_metrics_linux_amd64',
+      name: 'wh31e_metrics_linux_amd64'
+    },
+    {
+      source: 'bin/wh31e_metrics_linux_arm',
+      name: 'wh31e_metrics_linux_arm'
     }
   ]
 )
