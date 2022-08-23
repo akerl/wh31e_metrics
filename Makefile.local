@@ -1,3 +1,2 @@
 PACKAGE = wh31e_metrics
-NAMESPACE = github.com/akerl
 VERSION_VAR_PATH = Version
