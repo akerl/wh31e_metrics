@@ -1,6 +1,10 @@
 wh31e_metrics
 =========
 
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/akerl/wh31e_metrics/Build)](https://github.com/akerl/wh31e_metrics/actions)
+[![GitHub release](https://img.shields.io/github/release/akerl/wh31e_metrics.svg)](https://github.com/akerl/wh31e_metrics/releases)
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
+
 Transform [WH31E](https://www.amazon.com/dp/B01MG4HW8C/) readings from [rtl_433](https://github.com/merbanan/rtl_433) for publishing to [InfluxDB](https://github.com/influxdata/influxdb).
 
 ## Usage
