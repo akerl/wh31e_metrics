@@ -1,7 +1,7 @@
 wh31e_metrics
 =========
 
-[![GitHub Workflow Status](https://img.shields.io/actions/github/workflow/status/akerl/wh31e_metrics/build.yml?branch=main)](https://github.com/akerl/wh31e_metrics/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/akerl/wh31e_metrics/build.yml?branch=main)](https://github.com/akerl/wh31e_metrics/actions)
 [![GitHub release](https://img.shields.io/github/release/akerl/wh31e_metrics.svg)](https://github.com/akerl/wh31e_metrics/releases)
 [![MIT Licensed](https://img.shields.io/badge/license-MIT-green.svg)](https://tldrlegal.com/license/mit-license)
 
